@@ -5,6 +5,7 @@ import morgan from "morgan";
 import pkg from "../package.json";
 // import routes
 import clientsRoutes from "./routes/clients.routes";
+import petsRoutes from "./routes/pets.routes";
 const app = express();
 
 app.set("pkg", pkg);
@@ -22,5 +23,5 @@ app.get("/", (req, res) => {
 
 //Routes
 app.use("/clients", clientsRoutes);
-
+app.use("/pets", petsRoutes);
 export default app;

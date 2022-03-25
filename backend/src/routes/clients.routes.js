@@ -4,6 +4,7 @@ const router = Router();
 // Controllers
 import * as clientsCtrl from "../controllers/clients.controller";
 
+//Rutas
 router.get("/", clientsCtrl.getClients);
 router.post("/", clientsCtrl.createClient);
 router.get("/:clientId", clientsCtrl.getClientById);

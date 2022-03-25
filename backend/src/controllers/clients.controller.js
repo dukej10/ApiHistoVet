@@ -19,8 +19,20 @@ export const getClients = async (req, res) => {
   res.json(clients);
 };
 
-export const getClientById = (req, res) => {};
+export const getClientById = async (req, res) => {
+  const { clientId } = req.params;
+  const clientcut = await Client.findById(clientId);
+  res.status(200).json(clientcut);
+};
 
-export const updateClientById = (req, res) => {};
+export const updateClientById = async (req, res) => {
+  const { clientId } = req.params;
+  const updatedClient = await Client.findByIdAndUpdate(clientId, req.body); //devuelve como estaba antes
+  res.status(200).json(updatedClient);
+};
 
-export const deleteClientById = (req, res) => {};
+export const deleteClientById = async (req, res) => {
+  const { clientId } = req.params;
+  const deletedClient = await Client.findByIdAndDelete(clientId);
+  res.status(200).json(deletedClient);
+};

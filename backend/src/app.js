@@ -9,6 +9,7 @@ const app = express();
 
 app.set("pkg", pkg);
 app.use(morgan("dev"));
+app.use(express.json()); //Entender los datos en formato JSON
 
 // Cuando se visita la ruta inicial
 app.get("/", (req, res) => {

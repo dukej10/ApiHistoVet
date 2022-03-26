@@ -6,6 +6,7 @@ import pkg from "../package.json";
 // import routes
 import clientsRoutes from "./routes/clients.routes";
 import petsRoutes from "./routes/pets.routes";
+import historyRoutes from "./routes/history.routes";
 const app = express();
 
 app.set("pkg", pkg);
@@ -24,4 +25,5 @@ app.get("/", (req, res) => {
 //Routes
 app.use("/clients", clientsRoutes);
 app.use("/pets", petsRoutes);
+app.use("/history", historyRoutes);
 export default app;

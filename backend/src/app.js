@@ -3,11 +3,15 @@
 import express from "express";
 import morgan from "morgan";
 import pkg from "../package.json";
+import { createRoles } from "./libs/initialSetup";
 // import routes
 import clientsRoutes from "./routes/clients.routes";
 import petsRoutes from "./routes/pets.routes";
 import historyRoutes from "./routes/history.routes";
+import authRoutes from "./routes/auth.routes";
+
 const app = express();
+createRoles();
 
 app.set("pkg", pkg);
 app.use(morgan("dev"));
@@ -23,7 +27,8 @@ app.get("/", (req, res) => {
 });
 
 //Routes
-app.use("/clients", clientsRoutes);
-app.use("/pets", petsRoutes);
-app.use("/history", historyRoutes);
+app.use("/api/clients", clientsRoutes);
+app.use("/api/pets", petsRoutes);
+app.use("/api/history", historyRoutes);
+app.use("/api/auth", authRoutes);
 export default app;
